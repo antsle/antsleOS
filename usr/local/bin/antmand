@@ -1,0 +1,5 @@
+#!/bin/bash
+cd /usr/local/antsleOS/antman/target
+export PORT=3000
+/usr/local/bin/antsle-avahi-alias.py &
+exec java -jar antman.jar

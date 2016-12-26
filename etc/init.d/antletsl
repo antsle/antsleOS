@@ -1,0 +1,22 @@
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
+
+depend() {
+  need net
+  need avahi-daemon
+  need dbus
+}
+
+start() {
+  ebegin "Starting antletsl"
+  start-stop-daemon --background --start --exec /usr/local/bin/antletsld --make-pidfile --pidfile /tmp/antletsld.pid
+  eend $?
+}
+
+stop() {
+  ebegin "Stopping antletsl"
+  start-stop-daemon --stop --exec /usr/local/bin/antletsld --pidfile /tmp/antletsld.pid
+  eend $?
+}

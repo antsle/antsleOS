@@ -1,0 +1,23 @@
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
+
+depend() {
+  need net
+  need libvirtd
+  need sshd
+  need zfs-mount
+}
+
+start() {
+  ebegin "Starting antman"
+  start-stop-daemon --background --start --exec /usr/local/bin/antmand --make-pidfile --pidfile /tmp/antmand.pid
+  eend $?
+}
+
+stop() {
+  ebegin "Stopping antman"
+  start-stop-daemon --stop --exec /usr/local/bin/antmand --pidfile /tmp/antmand.pid
+  eend $?
+}
