@@ -1,0 +1,38 @@
+<domain type='lxc'>
+  <name>{{name}}</name>
+  <memory unit='MiB'>{{ram}}</memory>
+  <vcpu placement='static'>{{cpu}}</vcpu>
+  <resource>
+    <partition>/machine</partition>
+  </resource>
+  <os>
+    <type arch='x86_64'>exe</type>
+    <init>/sbin/init</init>
+  </os>
+  <features>
+    <privnet/>
+  </features>
+  <clock offset='utc'/>
+  <on_poweroff>destroy</on_poweroff>
+  <on_reboot>restart</on_reboot>
+  <on_crash>restart</on_crash>
+  <devices>
+    <hostdev mode='capabilities' type='misc'>
+      <source>
+        <char>/dev/net/tun</char>
+      </source>
+    </hostdev>
+    <emulator>/usr/libexec/libvirt_lxc</emulator>
+    <filesystem type='mount' accessmode='passthrough'>
+      <source dir='/antlets/{{name}}'/>
+      <target dir='/'/>
+    </filesystem>
+    <interface type='network'>
+      <mac address='b2:61:6e:73:6c:{{iphex}}'/>
+      <source network='bblv'/>
+    </interface>
+    <console type='pty'>
+      <target type='lxc' port='0'/>
+    </console>
+  </devices>
+</domain>
