@@ -1,7 +1,7 @@
 # antsleOS
 The Gentoo flavor running on an [antsle].
 ## What is antsleOS?
-It's the preinstalled flavor of [Gentoo] Linux that comes with an [antsle]. It's basically a plain gentoo with a custom-built kernel, a few installed packages, and some configurations/addition. It's completely tailored for its purpose: acting as an efficient, leightweight type-1 hypervisor.
+It's the preinstalled flavor of [Gentoo] Linux that comes with an [antsle]. It's basically a plain gentoo with a custom-built kernel, a few installed packages, and some configurations/addition. It's completely tailored for its purpose: acting as an efficient, lightweight type-1 hypervisor.
 ## Why did antsle choose Linux?
 We feel that Linux is the obvious choice for servers. The reasons for that are manifold, one of which being the ability to run any Linux flavor in container-based antlets.
 ## Why did antsle choose Gentoo?
